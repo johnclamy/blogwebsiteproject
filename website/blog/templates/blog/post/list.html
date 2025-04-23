@@ -1,14 +1,27 @@
 {% extends "blog/base.html" %}
 {% block title %}Starter Blog | Blogging about anything and everything{% endblock title %}
 {% block content %}
-    <h1>My Blog</h1>
-    {% for post in posts %}
-        <h2>
-            <a href="{% url 'blog:post_detail' post.id %}">
-                {{post.title}}
-            </a>
-        </h2>
-        <p>Published {{post.publish}} by {{post.author}}</p>
-        {{post.body|truncatewords:30|linebreaks}}
-    {% endfor %}
+<div class="col-lg-8">
+    <!-- Nested row for non-featured blog posts-->
+    <div class="row">
+        <article class="col-lg-6">
+            <!-- Blog post-->
+            {% for post in posts %}
+            <section class="card mb-4">
+                <div class="card-body">
+                    <div class="small text-muted">
+                        <p>Published {{post.publish}} by {{post.author}}</p>
+                    </div>
+                    <h2 class="card-title h4">
+                        <a href="{% url 'blog:post_detail' post.id %}">{{post.title}}</a>
+                    </h2>
+                    <p class="card-text">
+                        {{post.body|truncatewords:30|linebreaks}}
+                    </p>
+                </div>
+            </section>
+            {% endfor %}
+        </article>
+    </div> 
+</div>
 {% endblock content %}
