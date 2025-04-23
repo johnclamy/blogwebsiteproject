@@ -1,27 +1,34 @@
 {% extends "blog/base.html" %}
 {% block title %}Starter Blog | Blogging about anything and everything{% endblock title %}
 {% block content %}
-<div class="col-lg-8">
-    <!-- Nested row for non-featured blog posts-->
-    <div class="row">
-        <article class="col-lg-6">
-            <!-- Blog post-->
-            {% for post in posts %}
-            <section class="card mb-4">
-                <div class="card-body">
-                    <div class="small text-muted">
-                        <p>Published {{post.publish}} by {{post.author}}</p>
-                    </div>
-                    <h2 class="card-title h4">
-                        <a href="{% url 'blog:post_detail' post.id %}">{{post.title}}</a>
-                    </h2>
-                    <p class="card-text">
-                        {{post.body|truncatewords:30|linebreaks}}
-                    </p>
-                </div>
-            </section>
-            {% endfor %}
-        </article>
-    </div> 
+
+<div class="row">
+    <!-- Page header -->
+    <header>
+        <h1 class="text-capitalize mb-3">blog posts</h1>
+    </header>
+
+    <article class="row">
+        <!-- Blog post-->
+        {% for post in posts %}
+        <section class="card mb-2 col-lg-6 me-lg-2" style="max-width: 22rem;">
+            <div class="card-body">
+                <h1 class="card-title h5">
+                    <a class="link-info text-decoration-none" href="{% url 'blog:post_detail' post.id %}">
+                        {{post.title}}
+                    </a>
+                </h1>
+                <p class="card-subtitle mb-2 text-muted" style="font-size:0.8rem;">
+                    Published <b class="fw-light">{{post.publish}}</b> <br />
+                    by <strong>{{post.author}}</strong>
+                </p>
+                <p class="card-text">
+                    {{post.body|truncatewords:30|linebreaks}}
+                </p>
+                <a class="btn btn-info btn-sm" href="#!">Read more →</a>
+            </div>
+        </section>
+        {% endfor %}
+    </article>
 </div>
 {% endblock content %}
