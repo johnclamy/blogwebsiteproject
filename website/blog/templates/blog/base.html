@@ -24,13 +24,23 @@
             </div>
         </nav>
 
-        <main>
-            {% block content %}{% endblock content %}
-        </main>
-        <aside>
-            <h1>My Blog</h1>
-            <p>This is my blog.</p>
-        </aside>
+        <!-- Page content -->
+        <div class="container">
+            <div class="row">
+                <!-- Blog entries-->
+                <main>
+                    {% block content %}{% endblock content %}
+                </main>
+
+                <!-- Side widgets-->
+                <aside>
+                    <div class="card mb-4">
+                        <div class="card-header">Side Widget</div>
+                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+                    </div>
+                </aside>
+            </div>
+        </div>
 
         <!-- Footer-->
         <footer class="py-5 bg-dark">
