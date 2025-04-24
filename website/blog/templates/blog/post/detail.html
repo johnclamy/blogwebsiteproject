@@ -1,0 +1,31 @@
+{% extends "blog/base.html" %}
+{% block title %}{{post.title}}{% endblock title %}
+{% block content %}
+<!-- Page content-->
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-lg-10">
+            <!-- Post content-->
+            <article>
+                <!-- Post header-->
+                <header class="mb-4">
+                    <!-- Post title-->
+                    <h1 class="fw-bolder mb-1">{{post.title}}</h1>
+                    <!-- Post meta content-->
+                    <p class="text-muted fst-italic mb-2">
+                        Published {{post.publish}} by {{post.author}}
+                    </p>
+                    <!-- Post categories
+                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
+                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                    -->
+                </header>
+                <section class="mb-5">
+                    {{ post.body|linebreaks }}
+                </section>
+            </article>
+            <!-- Comments section-->
+        </div>
+    </div>
+</div>
+{% endblock content %}
