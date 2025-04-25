@@ -1,6 +1,6 @@
-from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, render
 from .models import Post
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 
 def post_list(request):
@@ -8,10 +8,16 @@ def post_list(request):
     paginator = Paginator(post_list, 8)      # Pagination with eight posts per page
     page_number = request.GET.get('page', 1)
 
+    try:
+        posts = paginator.page(page_number)
+    except EmptyPage:
+        # If page_number is out of range get last page of results
+        posts = paginator.page(paginator.num_pages)
+
     return render(
         request,
         'blog/post/list.html',
-        {'posts': paginator.page(page_number)}
+        {'posts': posts}
     )
 
 
