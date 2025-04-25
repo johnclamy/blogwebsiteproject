@@ -1,13 +1,13 @@
-<section class="pagination">
-    <span class="step-link">
+<section class="d-flex justify-content-center align-items-center mt-4 fw-bold">
+    <p class="step-link">
         {% if page.has_previous %}
-            <a href="?page={{page.previous_page_number}}">Previous</a>
+            <a class="fs-5 fw-normal text-decoration-none" href="?page={{page.previous_page_number}}">Previous</a>&nbsp;
         {% endif %}
         <span class="current">
             Page {{page.number}} of {{page.paginator.num_pages}}.
-        </span>
+        </span>&nbsp;
         {% if page.has_next %}
-            <a href="?page={{ page.next_page_number }}">Next</a>    
+            <a class="fs-5 fw-normal text-decoration-none" href="?page={{ page.next_page_number }}">Next</a>    
         {% endif %}
-    </span>
+    </p>
 </section>
