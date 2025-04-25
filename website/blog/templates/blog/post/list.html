@@ -14,7 +14,7 @@
         <section class="card mb-2 col-lg-6 me-lg-2" style="max-width: 22rem;">
             <div class="card-body">
                 <h1 class="card-title h5">
-                    <a class="link-info text-decoration-none" href="{% url 'blog:post_detail' post.id %}">
+                    <a class="link-info text-decoration-none" href="{{post.get_absolute_url}}">
                         {{post.title}}
                     </a>
                 </h1>
