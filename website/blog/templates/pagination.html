@@ -1,13 +1,17 @@
 <section class="d-flex justify-content-center align-items-center mt-4 fw-bold">
     <p class="step-link">
         {% if page.has_previous %}
-            <a class="fs-5 fw-normal text-decoration-none" href="?page={{page.previous_page_number}}">Previous</a>&nbsp;
+            <a class="fs-5 fw-bolder link-info text-decoration-none" href="?page={{page.previous_page_number}}">
+                Previous
+            </a>&nbsp;
         {% endif %}
         <span class="current">
             Page {{page.number}} of {{page.paginator.num_pages}}.
         </span>&nbsp;
         {% if page.has_next %}
-            <a class="fs-5 fw-normal text-decoration-none" href="?page={{ page.next_page_number }}">Next</a>    
+            <a class="fs-5 fw-bolder link-info text-decoration-none" href="?page={{ page.next_page_number }}">
+                Next
+            </a>    
         {% endif %}
     </p>
 </section>
