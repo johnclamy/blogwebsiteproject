@@ -1,14 +1,17 @@
+from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, render
 from .models import Post
 
 
 def post_list(request):
-    posts = Post.published.all()
+    post_list = Post.published.all()
+    paginator = Paginator(post_list, 8)      # Pagination with eight posts per page
+    page_number = request.GET.get('page', 1)
 
     return render(
         request,
         'blog/post/list.html',
-        {'posts': posts}
+        {'posts': paginator.page(page_number)}
     )
 
 
