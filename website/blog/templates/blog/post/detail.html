@@ -23,7 +23,7 @@
                 <section class="mb-5">
                     {{ post.body|linebreaks }}
                     <p>
-                        <a href="{% url 'blog:post_share' post_id %}">
+                        <a href="{% url 'blog:post_share' post.id %}">
                             Share this post
                         </a>
                     </p>
